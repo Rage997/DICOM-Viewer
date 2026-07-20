@@ -8,7 +8,10 @@ import { readFileSync } from 'fs';
 const pkg = JSON.parse(readFileSync(path.resolve(__dirname, 'package.json'), 'utf-8'));
 
 // https://vitejs.dev/config/
-export default defineConfig({
+// `base` is '/' for local dev but '/DICOM-Viewer/' for production builds so
+// asset URLs resolve under the GitHub Pages project subpath.
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/DICOM-Viewer/' : '/',
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
   },
@@ -45,4 +48,4 @@ export default defineConfig({
   worker: {
     format: 'es',
   },
-});
+}));
