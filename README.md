@@ -8,27 +8,28 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
 
 ![DICOM Viewer Preview](docs/images/app-preview.png)
 
+![LIVE DEMO](https://rage997.github.io/DICOM-Viewer/)
 
 ## Features
 
 ### Core Functionality
-- **🗂️ File Loading**
+- **File Loading**
   - Drag-and-drop DICOM files or folders
   - Folder picker with recursive scanning
   - Multi-file batch processing with Web Workers
   - Graceful handling of missing metadata
 
 ### 2D Viewing
-- **📊 Multi-Planar Reconstruction (MPR)**
+- **Multi-Planar Reconstruction (MPR)**
   - Axial, Sagittal, and Coronal views
   - Real-time slice navigation (scroll wheel, slider, buttons)
   - Window/Level adjustment (mouse drag)
   - Slice counter and progress indicator
   - Window/Level presets (Brain, Lung, Bone, Abdomen, Liver, Spine) with keyboard shortcuts
   - Measurements: distance (mm), angle (°), rectangle ROI (area + HU statistics)
-  
+
 ### 3D Rendering
-- **🎨 GPU Volume Rendering**
+- **GPU Volume Rendering**
   - Real-time ray marching with WebGL2
   - Multi-segment transfer function for tissue differentiation
   - Gradient-based Phong shading for depth perception
@@ -37,7 +38,7 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
   - Camera reset and preset buttons
 
 ### User Interface
-- **🎯 Medical Imaging Workstation UI**
+- **Medical Imaging Workstation UI**
   - Dark theme optimized for medical imaging
   - Selectable viewport layouts (1×1, 2×2, 1+3) with click-to-focus
   - Single-slice mode for 2D-only datasets
@@ -46,7 +47,7 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
   - Settings panel (toolbar gear) for 3D rendering
 
 ### Privacy & Performance
-- **🔒 100% Client-Side Processing**
+- **100% Client-Side Processing**
   - No server uploads - files never leave your device
   - HIPAA-friendly architecture
   - Fast Web Worker-based DICOM parsing (4 concurrent workers)
@@ -55,7 +56,7 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
 ## Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 18+
 - Modern browser with WebGL2 support
 - If browser supports WebGPU, it automatically switches to it
 
@@ -86,7 +87,7 @@ The app will be available at `http://localhost:8050`
    - Scroll to navigate through slices
    - Drag slider or use prev/next buttons
    - Left-drag on image to adjust brightness/contrast (Window/Level)
-   - Arrow keys on the hovered view: **← →** change slice, **↑ ↓** adjust brightness
+   - Arrow keys on the hovered view: **Left/Right** change slice, **Up/Down** adjust brightness
    - Press **1–6** to apply Window/Level presets (Brain, Lung, Bone, Abdomen, Liver, Spine)
 
 3. **Interact with 3D view:**
@@ -128,7 +129,7 @@ npm run type-check
 
 **Current Status:** 126 tests passing, 2 skipped (unit); e2e specs run via `yarn test:e2e`
 
-## 📦 Building for Production
+## Building for Production
 
 ```bash
 # Build for production
@@ -164,26 +165,26 @@ src/
 └── workers/               # Web Workers
 ```
 
-## 🗺️ Roadmap
+## Roadmap
 
-[X] DICOM file loading and parsing
-[X] Study reconstruction and series detection
-[X] 2D MPR views (axial, sagittal, coronal)
-[X] 3D volume rendering with ray marching
-[X] Interactive slice navigation and Window/Level
-[X] Camera controls and 3D settings panel
-[X] Folder drag-and-drop support
-[X] Graceful degradation for incomplete metadata
-[X] Window/Level presets (Brain, Lung, Bone, Abdomen, Liver, Spine)
-[X] Keyboard shortcuts for slice navigation and presets
-[X] Window/Level preset dropdown, Help & Settings menus
-[X] Selectable viewport layouts (1×1, 2×2, 1+3)
-[X] Measurements tool (distance, angle, ROI)
-[ ] Color transfer functions
-[ ] MIP (Maximum Intensity Projection) rendering
-[ ] Clipping planes for 3D view
-[ ] Multi-study comparison
-[ ] Export capabilities (PNG, DICOM SR)
+- [x] DICOM file loading and parsing
+- [x] Study reconstruction and series detection
+- [x] 2D MPR views (axial, sagittal, coronal)
+- [x] 3D volume rendering with ray marching
+- [x] Interactive slice navigation and Window/Level
+- [x] Camera controls and 3D settings panel
+- [x] Folder drag-and-drop support
+- [x] Graceful degradation for incomplete metadata
+- [x] Window/Level presets (Brain, Lung, Bone, Abdomen, Liver, Spine)
+- [x] Keyboard shortcuts for slice navigation and presets
+- [x] Window/Level preset dropdown, Help & Settings menus
+- [x] Selectable viewport layouts (1×1, 2×2, 1+3)
+- [x] Measurements tool (distance, angle, ROI)
+- [ ] Color transfer functions
+- [ ] MIP (Maximum Intensity Projection) rendering
+- [ ] Clipping planes for 3D view
+- [ ] Multi-study comparison
+- [ ] Export capabilities (PNG, DICOM SR)
 
 ## Contributing
 
