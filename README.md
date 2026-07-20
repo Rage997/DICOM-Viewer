@@ -8,7 +8,7 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
 
 ![DICOM Viewer Preview](docs/images/app-preview.png)
 
-![LIVE DEMO](https://rage997.github.io/DICOM-Viewer/)
+[LIVE DEMO](https://rage997.github.io/DICOM-Viewer/)
 
 ## Features
 
