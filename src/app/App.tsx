@@ -21,6 +21,10 @@ import type { RenderingBackend, LayoutMode, ViewportOrientation, Measurement } f
 // localStorage flag: the first-run navigation hint has been shown/dismissed.
 const HINT_SEEN_KEY = 'hint.navigate.seen';
 
+// Demo dataset: a downsampled brain MRI served from public/. BASE_URL keeps the
+// path correct under a subpath deploy (e.g. GitHub Pages project sites).
+const DEMO_URL = `${import.meta.env.BASE_URL}demo/brain-mr.zip`;
+
 function App() {
   const [backend, setBackend] = useState<RenderingBackend | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -44,6 +48,7 @@ function App() {
 
   const {
     loadFiles,
+    loadFromUrl,
     openFilePicker,
     activeErrors,
     filesWithWarnings,
@@ -69,6 +74,20 @@ function App() {
     };
 
     detectBackend();
+  }, []);
+
+  // Auto-load a dataset from the URL: `?url=<zip>` loads any hosted study;
+  // `?demo` (or `?demo=true`) loads the bundled demo. Runs once on mount.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const urlParam = params.get('url');
+    const demoParam = params.get('demo');
+    if (urlParam) {
+      void loadFromUrl(urlParam);
+    } else if (demoParam !== null && demoParam !== 'false') {
+      void loadFromUrl(DEMO_URL);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Keyboard shortcut: Ctrl+O
@@ -122,6 +141,10 @@ function App() {
 
   const handleOpenFolder = () => {
     openFilePicker({ directory: true });
+  };
+
+  const handleLoadDemo = () => {
+    void loadFromUrl(DEMO_URL);
   };
 
   const handleCloseStudy = () => {
@@ -273,6 +296,7 @@ function App() {
           <ViewportGrid
             hasData={hasData}
             onDrop={handleDrop}
+            onLoadDemo={handleLoadDemo}
             volume={activeVolume}
             windowLevel={windowLevel}
             windowWidth={windowWidth}

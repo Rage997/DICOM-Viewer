@@ -13,7 +13,7 @@ export interface FocusTarget {
 }
 
 export interface LoadingProgress {
-  stage: 'validating' | 'parsing' | 'reconstructing' | 'complete';
+  stage: 'downloading' | 'validating' | 'parsing' | 'reconstructing' | 'complete';
   current: number;
   total: number;
   message: string;

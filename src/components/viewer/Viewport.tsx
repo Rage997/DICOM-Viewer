@@ -14,6 +14,7 @@ interface ViewportProps {
   orientation?: SliceOrientation | '3d';
   isEmpty?: boolean;
   onDrop?: (dataTransfer: DataTransfer) => void;
+  onLoadDemo?: () => void;
   volume?: Volume | null;
   windowLevel?: number;
   windowWidth?: number;
@@ -26,6 +27,7 @@ export function Viewport({
   orientation,
   isEmpty = true,
   onDrop,
+  onLoadDemo,
   volume,
   windowLevel = 40,
   windowWidth = 400,
@@ -218,6 +220,18 @@ export function Viewport({
                   Drop your scan folder here
                 </div>
                 <div className="text-xs text-neutral-600">or use Open Folder button</div>
+                {onLoadDemo && (
+                  <>
+                    <div className="mt-1 text-xs text-neutral-700">— or —</div>
+                    <button
+                      type="button"
+                      onClick={onLoadDemo}
+                      className="mt-1 rounded-md border border-blue-500/40 bg-blue-500/10 px-3 py-1.5 text-xs font-medium text-blue-300 transition-colors hover:bg-blue-500/20 hover:text-blue-200"
+                    >
+                      Load demo dataset (Brain MRI)
+                    </button>
+                  </>
+                )}
               </>
             )}
             {orientation !== 'axial' && (

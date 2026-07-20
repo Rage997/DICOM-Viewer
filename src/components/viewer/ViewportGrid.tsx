@@ -5,6 +5,7 @@ import type { Volume, LayoutMode, ViewportOrientation } from '@/types';
 interface ViewportGridProps {
   hasData?: boolean;
   onDrop?: (dataTransfer: DataTransfer) => void;
+  onLoadDemo?: () => void;
   volume?: Volume | null;
   windowLevel?: number;
   windowWidth?: number;
@@ -18,6 +19,7 @@ interface ViewportGridProps {
 export function ViewportGrid({
   hasData = false,
   onDrop,
+  onLoadDemo,
   volume,
   windowLevel,
   windowWidth,
@@ -52,6 +54,7 @@ export function ViewportGrid({
         orientation={orientation}
         isEmpty={!hasData}
         onDrop={onDrop}
+        onLoadDemo={onLoadDemo}
         volume={volume}
         windowLevel={windowLevel}
         windowWidth={windowWidth}

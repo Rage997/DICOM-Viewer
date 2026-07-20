@@ -6,6 +6,7 @@
 import { useCallback, useRef, useState } from 'react';
 import { useStore } from '@/state/store';
 import { FileLoader } from '@/features/dicom/loader/FileLoader';
+import { loadDicomZipFromUrl } from '@/features/dicom/loader/urlLoader';
 import { WorkerPool } from '@/workers/WorkerPool';
 import type { DicomFile } from '@/types';
 
@@ -166,6 +167,53 @@ export function useDicomLoader() {
   );
 
   /**
+   * Download a ZIP of DICOM files from a URL and load them through the standard
+   * pipeline. Used by demo mode and the `?url=` parameter.
+   */
+  const loadFromUrl = useCallback(
+    async (url: string): Promise<LoadResult> => {
+      setShouldStop(false);
+      setLoading(true);
+      setActiveErrors([]);
+      setProgress({
+        stage: 'downloading',
+        current: 0,
+        total: 0,
+        message: 'Downloading dataset...',
+      });
+
+      let files: File[];
+      try {
+        files = await loadDicomZipFromUrl(url, ({ loaded, total }) => {
+          const mb = (n: number) => (n / (1024 * 1024)).toFixed(1);
+          setProgress({
+            stage: 'downloading',
+            current: loaded,
+            total,
+            message: total
+              ? `Downloading dataset... (${mb(loaded)} / ${mb(total)} MB)`
+              : `Downloading dataset... (${mb(loaded)} MB)`,
+          });
+        });
+      } catch (error) {
+        console.error('Failed to load dataset from URL:', error);
+        setLoading(false);
+        setProgress(null);
+        const errorItem = {
+          file: url,
+          error: error instanceof Error ? error : new Error('Unknown error'),
+        };
+        setActiveErrors([errorItem]);
+        return { success: [], errors: [errorItem] };
+      }
+
+      // Hand the unpacked files to the standard validate/parse pipeline.
+      return loadFiles(files);
+    },
+    [setLoading, setProgress, loadFiles]
+  );
+
+  /**
    * Open file picker and load selected files
    */
   const openFilePicker = useCallback(
@@ -238,6 +286,7 @@ export function useDicomLoader() {
 
   return {
     loadFiles,
+    loadFromUrl,
     openFilePicker,
     activeErrors,
     filesWithWarnings,
