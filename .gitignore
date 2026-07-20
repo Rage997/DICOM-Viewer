@@ -31,7 +31,6 @@ dist-ssr
 # DICOM test files (can be large)
 *.dcm
 *.dicom
-test-data/
 sample-data/
 
 # Development notes and documentation drafts
