@@ -6,6 +6,9 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Tests](https://img.shields.io/badge/tests-126%20passing-brightgreen)
 
+![DICOM Viewer Preview](docs/images/app-preview.png)
+
+
 ## Features
 
 ### Core Functionality
