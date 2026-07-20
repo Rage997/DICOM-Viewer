@@ -9,14 +9,14 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
 ## Features
 
 ### Core Functionality
-- ** File Loading**
+- **🗂️ File Loading**
   - Drag-and-drop DICOM files or folders
   - Folder picker with recursive scanning
-  - Multi-file batch optmised with Web Workers
-  - Handle of missing metadata
+  - Multi-file batch processing with Web Workers
+  - Graceful handling of missing metadata
 
 ### 2D Viewing
-- ** Multi-Planar Reconstruction (MPR)**
+- **📊 Multi-Planar Reconstruction (MPR)**
   - Axial, Sagittal, and Coronal views
   - Real-time slice navigation (scroll wheel, slider, buttons)
   - Window/Level adjustment (mouse drag)
@@ -25,7 +25,7 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
   - Measurements: distance (mm), angle (°), rectangle ROI (area + HU statistics)
   
 ### 3D Rendering
-- ** GPU Volume Rendering**
+- **🎨 GPU Volume Rendering**
   - Real-time ray marching with WebGL2
   - Multi-segment transfer function for tissue differentiation
   - Gradient-based Phong shading for depth perception
@@ -34,7 +34,7 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
   - Camera reset and preset buttons
 
 ### User Interface
-- ** Medical Imaging Workstation UI**
+- **🎯 Medical Imaging Workstation UI**
   - Dark theme optimized for medical imaging
   - Selectable viewport layouts (1×1, 2×2, 1+3) with click-to-focus
   - Single-slice mode for 2D-only datasets
@@ -43,7 +43,7 @@ A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D
   - Settings panel (toolbar gear) for 3D rendering
 
 ### Privacy & Performance
-- ** 100% Client-Side Processing**
+- **🔒 100% Client-Side Processing**
   - No server uploads - files never leave your device
   - HIPAA-friendly architecture
   - Fast Web Worker-based DICOM parsing (4 concurrent workers)
