@@ -2,7 +2,7 @@
 
 A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D and 3D. Built with privacy in mind. All processing happens 100% client-side with no server uploads required. Free and open-source.
 
-This project was built as a learning tool to explore DICOM parsing, volumetric rendering, and GPU-accelerated visualization techniques in the browser. It is not intended for clinical or diagnostic use.
+This project was built as a learning tool to explore DICOM parsing, volumetric rendering, and GPU-accelerated visualization techniques in the browser. It is not intended for clinical or diagnostic use. If you are interested to see how it works, I wrote about it on [my blog](https://rage997.github.io/blog/building-a-3d-dicom-viewer-in-the-browser/)
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
