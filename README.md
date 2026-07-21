@@ -1,6 +1,8 @@
 # 3D DICOM Visualiser
 
-A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D and 3D. Built with privacy in mind - all processing happens 100% client-side with no server uploads required. Free and open-source.
+A modern, browser-based medical imaging viewer for visualizing DICOM files in 2D and 3D. Built with privacy in mind. All processing happens 100% client-side with no server uploads required. Free and open-source.
+
+This project was built as a learning tool to explore DICOM parsing, volumetric rendering, and GPU-accelerated visualization techniques in the browser. It is not intended for clinical or diagnostic use.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
@@ -184,7 +186,7 @@ src/
 - [ ] MIP (Maximum Intensity Projection) rendering
 - [ ] Clipping planes for 3D view
 - [ ] Multi-study comparison
-- [ ] Export capabilities (PNG, DICOM SR)
+- [X] Export capabilities (PNG, DICOM SR)
 
 ## Contributing
 
@@ -207,5 +209,3 @@ I welcome contributions but please follow these guidelines:
 ## License
 
 MIT License - see [LICENSE](LICENSE) file for details
-
-**Note:** This software is for educational and research purposes. It is not FDA-approved or intended for clinical diagnosis.
