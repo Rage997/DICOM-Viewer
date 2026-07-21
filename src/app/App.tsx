@@ -217,7 +217,7 @@ function App() {
   useEffect(() => {
     if (activeVolume) {
       setWindowLevel(activeVolume.windowLevel ?? 40);
-      setWindowWidth(activeVolume.windowWidth ?? 400);
+      setWindowWidth(activeVolume.windowWidth ?? 80);
 
       // Show the navigation hint once ever (dismissal persisted across reloads).
       if (!getFlag(HINT_SEEN_KEY)) {
