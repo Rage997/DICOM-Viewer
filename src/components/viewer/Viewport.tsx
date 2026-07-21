@@ -30,7 +30,7 @@ export function Viewport({
   onLoadDemo,
   volume,
   windowLevel = 40,
-  windowWidth = 400,
+  windowWidth = 80,
   onWindowLevelChange,
   isActive = false,
   onSelect,

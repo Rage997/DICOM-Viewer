@@ -28,8 +28,8 @@ const DEMO_URL = `${import.meta.env.BASE_URL}demo/brain-mr.zip`;
 function App() {
   const [backend, setBackend] = useState<RenderingBackend | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const [windowLevel, setWindowLevel] = useState(40);
-  const [windowWidth, setWindowWidth] = useState(400);
+  const [windowLevel, setWindowLevel] = useState(40); 
+  const [windowWidth, setWindowWidth] = useState(80);
   const [showHint, setShowHint] = useState(false);
   const [layout, setLayout] = useState<LayoutMode>('quad');
   const [activeOrientation, setActiveOrientation] = useState<ViewportOrientation>('axial');
@@ -151,7 +151,7 @@ function App() {
     clearAll();
     setLayout('quad');
     setWindowLevel(40);
-    setWindowWidth(400);
+    setWindowWidth(80);
   };
 
   const handleWindowLevelChange = (level: number, width: number) => {
